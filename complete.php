@@ -5,9 +5,9 @@ $title = $_SESSION['title'];
 $url = $_SESSION['url'];
 $datetime = date("Y-m-d H:i:s");
 
-$dsn = 'mysql:host=localhost;dbname=fblog';
-$username = 'ujm';
-$password = '37320111';
+$dsn = 'mysql:host=localhost;dbname=Your_dbname';
+$username = 'Your_username';
+$password = 'Your_password';
 $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
     ); 
