@@ -1,0 +1,35 @@
+<?php
+$dsn = 'mysql:host=localhost;dbname=fblog';
+$db_username = 'ujm';
+$db_password = '37320111';
+$options = array(
+        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+            );
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+$password = md5($password);
+
+$dbh = new PDO($dsn, $db_username, $db_password, $options);
+$stmt = $dbh->prepare("insert into user_list (username, password) values (?, ?)");
+$stmt->bindParam(1, $username);
+$stmt->bindParam(2, $password);
+$stmt->execute();
+
+?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="" method="post">
+        名前 : <input type="text" name="username">
+        <br />
+        パスワード : <input type="text" name="password">
+        <br />
+        <input type="submit" name="register" value="登録">
+    </form>
+</body>
+</html>
